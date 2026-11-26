@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.title">Toky Erick Rabenantoandro | Agents LLM et RAG, Montréal</title>
+  <meta name="description" content="Toky Erick Rabenantoandro s’intéresse à la construction d’agents LLM et de systèmes RAG, à Montréal." data-i18n-attr="content:meta.description">
+  <meta name="author" content="Toky Erick Rabenantoandro">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f1f1ec" data-theme-color>
+
+  <!-- Aperçus de lien : remplacer l’URL si le site n’est pas servi depuis toky5.github.io -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Toky Erick Rabenantoandro">
+  <meta property="og:description" content="Agents LLM et systèmes RAG, à Montréal.">
+  <meta property="og:image" content="https://toky5.github.io/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/nexa/nexa-extralight.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/caviar-dreams/caviar-dreams-bold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/buttons.css">
+  <link rel="stylesheet" href="assets/css/sketch.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/work.css">
+  <link rel="stylesheet" href="assets/css/case.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+  <link rel="stylesheet" href="assets/css/motion.css">
+
+  <script src="assets/js/boot.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "./assets/vendor/react/react.js",
+        "react-dom/client": "./assets/vendor/react/react-dom-client.js"
+      }
+    }
+  </script>
+  <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="nav.skip">Aller au contenu</a>
+
+  <header class="site-header">
+    <a class="site-header__name" href="#top">Toky Erick Rabenantoandro</a>
+
+    <nav class="site-nav" aria-label="Navigation principale" data-i18n-attr="aria-label:nav.label">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="#projets" data-i18n="nav.work">Projets</a></li>
+        <li><a class="site-nav__link" href="#contact" data-i18n="nav.contact">Contact</a></li>
+        <li>
+          <button class="site-nav__link" type="button" data-lang-toggle>
+            <span data-when-lang="fr" lang="en"><span aria-hidden="true">EN</span><span class="visually-hidden">English version</span></span>
+            <span data-when-lang="en" lang="fr"><span aria-hidden="true">FR</span><span class="visually-hidden">Version française</span></span>
+          </button>
+        </li>
+        <li>
+          <button class="site-nav__link" type="button" data-theme-toggle>
+            <span class="theme-switch__icon" aria-hidden="true"></span>
+            <span class="visually-hidden" data-when-theme="light" data-i18n="theme.toDark">Activer le thème sombre</span>
+            <span class="visually-hidden" data-when-theme="dark" data-i18n="theme.toLight">Activer le thème clair</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <button class="site-header__menu" type="button" aria-haspopup="dialog" data-menu-open data-i18n="nav.menu">Menu</button>
+  </header>
+
+  <dialog class="menu" aria-label="Menu" data-i18n-attr="aria-label:nav.menu" data-menu>
+    <button class="menu__close" type="button" data-menu-close data-i18n="nav.close">Fermer</button>
+    <ul class="menu__links">
+      <li><a class="menu__link" href="#top" data-menu-link data-i18n="nav.home">Accueil</a></li>
+      <li><a class="menu__link" href="#projets" data-menu-link data-i18n="nav.work">Projets</a></li>
+      <li><a class="menu__link" href="#contact" data-menu-link data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="menu__preferences">
+      <button type="button" data-lang-toggle>
+        <span data-when-lang="fr" lang="en">English</span>
+        <span data-when-lang="en" lang="fr">Français</span>
+      </button>
+      <button type="button" data-theme-toggle>
+        <span data-when-theme="light" data-i18n="theme.dark">Thème sombre</span>
+        <span data-when-theme="dark" data-i18n="theme.light">Thème clair</span>
+      </button>
+    </div>
+  </dialog>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <h1 class="hero__statement" id="hero-title" data-i18n-html="hero.statement">Je m’intéresse à la construction d’agents LLM et de systèmes <span class="sketch" data-sketch="circle" data-sketch-delay="300">RAG</span>, à <span class="sketch" data-sketch="underline" data-sketch-delay="1100">Montréal</span>.</h1>
+      <div class="hero__actions">
+        <a class="button-pill button-pill--solid" href="#projets" data-magnetic>
+          <span class="button-fill" aria-hidden="true"></span>
+          <span data-i18n="hero.work">Voir les projets</span>
+        </a>
+        <a class="button-pill" href="#contact" data-magnetic>
+          <span class="button-fill" aria-hidden="true"></span>
+          <span data-i18n="hero.contact">Me contacter</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="work" id="projets" aria-labelledby="work-title">
+      <h2 class="work__title" id="work-title" data-i18n-html="work.title"><span class="sketch" data-sketch="underline">Projets</span></h2>
+      <!-- Îlot React : voir assets/js/projects/ (contenu dans projects-data.js). -->
+      <div class="work__root" data-projects-root>
+        <noscript><p>Activez JavaScript pour voir les projets. / Enable JavaScript to see the projects.</p></noscript>
+      </div>
+    </section>
+  </main>
+
+  <footer class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="contact__inner">
+      <h2 class="contact__title" id="contact-title" data-i18n-html="contact.title"><span class="sketch" data-sketch="underline">Écrivez</span>-moi.</h2>
+      <p class="contact__text" data-i18n="contact.text">Pour parler d’agents LLM et de RAG.</p>
+
+      <ul class="contact__links">
+        <li><a class="button-pill button-pill--on-dark" href="mailto:te-rabenantoandro@outlook.fr" data-magnetic><span class="button-fill" aria-hidden="true"></span><span>te-rabenantoandro@outlook.fr</span></a></li>
+        <li><a class="button-pill button-pill--on-dark" href="https://www.linkedin.com/in/toky-rabenantoandro-252474335" rel="me" data-magnetic><span class="button-fill" aria-hidden="true"></span><span>LinkedIn</span></a></li>
+        <li><a class="button-pill button-pill--on-dark" href="https://github.com/Toky5" rel="me" data-magnetic><span class="button-fill" aria-hidden="true"></span><span>GitHub</span></a></li>
+        <li><a class="button-pill button-pill--on-dark" href="assets/docs/CV_Toky_Erick_Rabenantoandro.pdf" download data-magnetic><span class="button-fill" aria-hidden="true"></span><span data-i18n="contact.cv">CV (PDF)</span></a></li>
+      </ul>
+    </div>
+
+    <span class="sketch-rule contact__rule" data-sketch="rule" aria-hidden="true"></span>
+    <div class="contact__bottom">
+      <p>© <span data-current-year>2026</span> Toky Erick Rabenantoandro</p>
+      <p>Montréal, <span data-clock>QC</span></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Transitions de page et respect de « réduire les animations »
+   ========================================================================== */
+
+/* Changement de thème : le nouveau thème s'étend en cercle (features/theme.js) */
+:root.is-theme-switching::view-transition-old(root),
+:root.is-theme-switching::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Changement de langue : fondu court */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}

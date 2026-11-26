@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Jetons de design : une page de papier annotée au stylo-bille (voir DESIGN.md).
+   Les autres feuilles n'utilisent que ces noms.
+   ========================================================================== */
+
+:root {
+  /* Palette */
+  --paper: #f1f1ec;
+  --paper-bright: #fafaf7;
+  --ink: #1c1d22;
+  --pen: #2b47c9;
+  --pen-on-dark: #8ea2ff;
+  --marker: #f2e05a;
+  --graphite: #1d1e23;
+  --graphite-raised: #26272d;
+  --chalk: #eaeae4;
+  --white: #ffffff;
+
+  /* Typographie */
+  --font-display: "Nexa", "Caviar Dreams", ui-sans-serif, system-ui, sans-serif;
+  --font-text: "Caviar Dreams", ui-sans-serif, system-ui, sans-serif;
+  --weight-display: 200;
+  --weight-heading: 900;
+  --weight-text: 700;
+
+  --text-small: clamp(0.875rem, 0.84rem + 0.15vw, 0.9375rem);
+  --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.1875rem);
+  --text-lead: clamp(1.25rem, 1.05rem + 0.8vw, 1.75rem);
+  --text-heading: clamp(2rem, 1.5rem + 2vw, 3.25rem);
+  --text-row: clamp(2.25rem, 1.2rem + 4vw, 5.25rem);
+  --text-title: clamp(2.5rem, 1.4rem + 4.6vw, 6rem);
+  --text-hero: clamp(2.75rem, 1.1rem + 6vw, 7.5rem);
+  --text-giant: clamp(3.25rem, 1.2rem + 8.6vw, 10.5rem);
+
+  /* Mise en page */
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+  --section: clamp(6rem, 12vw, 11rem);
+  --header-height: 5rem;
+  --radius-cover: 0.625rem;
+
+  /* Trait de stylo */
+  --pen-width: 3px;
+  --pencil-width: 1.5px;
+
+  /* Mouvement */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.7, 0, 0.3, 1);
+  --ease-draw: cubic-bezier(0.55, 0.1, 0.25, 1);
+  --ease-elastic: cubic-bezier(0.3, 1.6, 0.4, 1);
+}
+
+/* Thème clair : encre sur papier */
+:root {
+  color-scheme: light;
+
+  --c-bg: var(--paper);
+  --c-surface: var(--paper-bright);
+  --c-text: var(--ink);
+  --c-muted: rgb(28 29 34 / 0.62);
+  --c-pencil: rgb(28 29 34 / 0.42);
+  --c-pen: var(--pen);
+  --c-on-pen: var(--white);
+  --c-solid: var(--ink);
+  --c-on-solid: var(--paper);
+  --c-shadow: rgb(28 29 34 / 0.28);
+
+  /* Contact : la page se retourne, craie sur graphite */
+  --c-contact: var(--graphite);
+  --c-on-contact: var(--chalk);
+  --c-contact-muted: rgb(234 234 228 / 0.62);
+  --c-contact-line: rgb(234 234 228 / 0.24);
+}
+
+/* Thème sombre : craie sur graphite */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --c-bg: var(--graphite);
+  --c-surface: var(--graphite-raised);
+  --c-text: var(--chalk);
+  --c-muted: rgb(234 234 228 / 0.62);
+  --c-pencil: rgb(234 234 228 / 0.38);
+  --c-pen: var(--pen-on-dark);
+  --c-on-pen: var(--ink);
+  --c-solid: var(--chalk);
+  --c-on-solid: var(--graphite);
+  --c-shadow: rgb(0 0 0 / 0.5);
+
+  --c-contact: var(--graphite-raised);
+}

@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Hero : une seule phrase, annotée au stylo
+   ========================================================================== */
+
+.hero {
+  display: grid;
+  align-content: center;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  min-height: calc(100svh - var(--header-height));
+  padding: clamp(2rem, 6vh, 4rem) var(--gutter) clamp(5rem, 14vh, 9rem);
+}
+
+.hero__statement {
+  max-width: 13em;
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: var(--weight-display);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}

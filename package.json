@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-toky-erick-rabenantoandro",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Portfolio de Toky Erick Rabenantoandro : site statique HTML, CSS et JavaScript, avec un îlot React. Aucune compilation nécessaire.",
+  "type": "module",
+  "scripts": {
+    "start": "npx --yes serve@14 -l 8080 .",
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "vendor:react": "node scripts/vendor-react.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  }
+}

@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Boutons : pilules, remplissage au survol, effet magnétique
+   ========================================================================== */
+
+/* Attirés par le curseur (features/magnetic.js), retour avec un léger rebond */
+[data-magnetic] {
+  transition: translate 0.7s var(--ease-elastic);
+}
+
+[data-magnetic].is-magnetic {
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+/* Disque qui monte depuis le bas au survol */
+.button-fill {
+  position: absolute;
+  top: 100%;
+  left: -25%;
+  z-index: -1;
+  width: 150%;
+  height: 200%;
+  border-radius: 50%;
+  background-color: var(--fill);
+  transition: top 0.6s var(--ease-out);
+}
+
+.button-pill:is(:hover, :focus-visible) .button-fill {
+  top: -50%;
+}
+
+/* --- Pilule ------------------------------------------------------------------ */
+
+.button-pill {
+  --fill: var(--c-solid);
+
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  min-height: 3.25rem;
+  padding: 0 1.6rem;
+  overflow: hidden;
+  border: 1px solid var(--c-text);
+  border-radius: 999px;
+  color: var(--c-text);
+  font-size: var(--text-small);
+  white-space: nowrap;
+  transition:
+    color 0.35s ease,
+    border-color 0.35s ease,
+    translate 0.7s var(--ease-elastic);
+}
+
+.button-pill:is(:hover, :focus-visible) {
+  color: var(--c-on-solid);
+}
+
+/* Variante pleine : encre, remplie au stylo au survol */
+.button-pill--solid {
+  --fill: var(--c-pen);
+
+  background-color: var(--c-solid);
+  color: var(--c-on-solid);
+}
+
+.button-pill--solid:is(:hover, :focus-visible) {
+  border-color: var(--c-pen);
+  color: var(--c-on-pen);
+}
+
+/* Sur le fond graphite du contact */
+.button-pill--on-dark {
+  --fill: var(--c-on-contact);
+
+  border-color: var(--c-contact-line);
+  color: var(--c-on-contact);
+}
+
+.button-pill--on-dark:is(:hover, :focus-visible) {
+  border-color: var(--c-on-contact);
+  color: var(--c-contact);
+}
+
+/* Même forme, sans action (ex. « code privé ») */
+.button-pill--static {
+  border-style: dashed;
+  color: var(--c-muted);
+}

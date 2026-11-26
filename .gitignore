@@ -1,0 +1,10 @@
+# Archives des polices d’origine (gardées en local, hors du site)
+*.zip
+
+# Dépendances (seulement pour régénérer React)
+node_modules/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini

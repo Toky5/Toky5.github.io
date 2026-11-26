@@ -1,0 +1,28 @@
+/* ==========================================================================
+   Page 404 : le numéro entouré au stylo, un message bilingue et un retour
+   ========================================================================== */
+
+.not-found {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  min-height: 100svh;
+  padding: var(--gutter);
+}
+
+.not-found__code {
+  font-family: var(--font-display);
+  font-size: var(--text-giant);
+  font-weight: var(--weight-display);
+  line-height: 1;
+}
+
+.not-found__title {
+  font-size: var(--text-lead);
+  line-height: 1.4;
+}
+
+.not-found__title [lang="en"] {
+  color: var(--c-muted);
+}

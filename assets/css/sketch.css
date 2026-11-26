@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Annotations à main levée : cercles, soulignés et filets tracés au stylo.
+   Les tracés sont générés par features/doodles.js dans chaque [data-sketch] ;
+   le même module les anime (stroke-dashoffset) quand ils entrent dans l'écran.
+   ========================================================================== */
+
+/* Mot annoté : le tracé déborde autour du mot sans changer la mise en page */
+.sketch {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Filet tracé à la main, à la place d'une bordure */
+.sketch-rule {
+  position: relative;
+  display: block;
+  height: 0.875rem;
+  color: var(--c-pencil);
+
+  --sketch-color: currentColor;
+  --sketch-width: var(--pencil-width);
+}
+
+.sketch__mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  fill: none;
+  stroke: var(--sketch-color, var(--c-pen));
+  stroke-width: var(--sketch-width, var(--pen-width));
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Pas encore tracé : le trait entier est décalé hors de vue
+   (l'écart un peu plus long que le trait évite un point au départ) */
+.sketch__mark path {
+  stroke-dasharray: var(--length) calc(var(--length) + 10);
+  stroke-dashoffset: calc(var(--length) + 5);
+}
+
+.is-drawn > .sketch__mark path {
+  stroke-dashoffset: 0;
+}
+
+/* Tant que rien n'est tracé, le tracé reste invisible (pas de point au départ) */
+:not(.is-drawn) > .sketch__mark {
+  visibility: hidden;
+}

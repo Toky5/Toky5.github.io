@@ -1,0 +1,29 @@
+/*
+ * Polices fournies dans le dossier du site, converties en WOFF2 sans modification des glyphes.
+ * Nexa ExtraLight pour les grands titres, Nexa Heavy pour le titre de section,
+ * Caviar Dreams Bold pour le texte.
+ */
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../fonts/nexa/nexa-extralight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("../fonts/nexa/nexa-heavy.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Caviar Dreams";
+  src: url("../fonts/caviar-dreams/caviar-dreams-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
