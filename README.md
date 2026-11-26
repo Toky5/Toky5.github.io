@@ -1,6 +1,6 @@
 # Portfolio de Toky Erick Rabenantoandro
 
-Lien vers le site: https://toky5.github.io>
+Lien vers le site: https://toky5.github.io
 
 Site personnel : une phrase, deux projets, un contact. HTML, CSS et JavaScript, avec un
 petit îlot React pour les projets.
