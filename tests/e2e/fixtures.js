@@ -6,7 +6,13 @@
  */
 import { test as base, expect } from '@playwright/test';
 
-export const test = base.extend({
+/**
+ * Type des fixtures ajoutées ou remplacées (pour TypeScript : l'option expectedErrors est déclarée ici).
+ * @typedef {import('@playwright/test').PlaywrightTestArgs & import('@playwright/test').PlaywrightTestOptions} TestArgs
+ * @typedef {import('@playwright/test').PlaywrightWorkerArgs & import('@playwright/test').PlaywrightWorkerOptions} WorkerArgs
+ * @type {import('@playwright/test').Fixtures<{ expectedErrors: RegExp[] }, {}, TestArgs, WorkerArgs>}
+ */
+const fixtures = {
   expectedErrors: [[], { option: true }],
 
   page: async ({ page, expectedErrors }, use) => {
@@ -21,6 +27,8 @@ export const test = base.extend({
     const unexpected = errors.filter((error) => !expectedErrors.some((pattern) => pattern.test(error)));
     expect(unexpected, 'erreurs dans la page').toEqual([]);
   },
-});
+};
+
+export const test = base.extend(fixtures);
 
 export { expect };
