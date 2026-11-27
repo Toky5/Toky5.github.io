@@ -1,0 +1,15 @@
+# Code généré ou copié
+assets/vendor/
+
+# Rapports des tests
+coverage/
+reports/
+test-results/
+playwright-report/
+.stryker-tmp/
+
+# HTML mis en forme à la main : le texte et les mots annotés y sont sensibles aux espaces
+*.html
+
+# Textes rédigés
+*.md

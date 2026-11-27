@@ -5,7 +5,7 @@
 const CLOSE_DURATION = 800; // ms, comme la transition CSS de la feuille
 
 export function initMenu() {
-  const menu = document.querySelector('[data-menu]');
+  const menu = /** @type {HTMLDialogElement | null} */ (document.querySelector('[data-menu]'));
   if (!menu) return;
 
   const open = () => {
@@ -14,15 +14,18 @@ export function initMenu() {
     requestAnimationFrame(() => menu.classList.add('is-open'));
   };
 
+  /** Ferme la feuille après son animation ; la promesse se résout une fois la feuille fermée. */
   const close = () =>
-    new Promise((resolve) => {
-      if (!menu.open) return resolve();
-      menu.classList.remove('is-open');
-      setTimeout(() => {
-        menu.close();
-        resolve();
-      }, CLOSE_DURATION);
-    });
+    /** @type {Promise<void>} */ (
+      new Promise((resolve) => {
+        if (!menu.open) return resolve();
+        menu.classList.remove('is-open');
+        setTimeout(() => {
+          menu.close();
+          resolve();
+        }, CLOSE_DURATION);
+      })
+    );
 
   for (const button of document.querySelectorAll('[data-menu-open]')) button.addEventListener('click', open);
   menu.querySelector('[data-menu-close]')?.addEventListener('click', close);
@@ -34,7 +37,7 @@ export function initMenu() {
   });
 
   // Un lien du menu ferme la feuille, puis fait défiler jusqu'à sa section.
-  for (const link of menu.querySelectorAll('[data-menu-link]')) {
+  for (const link of /** @type {NodeListOf<HTMLAnchorElement>} */ (menu.querySelectorAll('[data-menu-link]'))) {
     link.addEventListener('click', async (event) => {
       event.preventDefault();
       await close();

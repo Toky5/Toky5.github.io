@@ -1,5 +1,5 @@
 /* ==========================================================================
-   En-tête : nom à gauche, navigation et réglages à droite
+   En-tête : nom à gauche, navigation et choix de la langue à droite
    ========================================================================== */
 
 .site-header {
@@ -37,20 +37,6 @@
 
 .site-nav__link:hover {
   text-decoration-color: var(--c-pen);
-}
-
-/* Icône du thème : un disque à moitié plein, retourné en thème sombre */
-.theme-switch__icon {
-  width: 1.05rem;
-  aspect-ratio: 1;
-  border: 1.5px solid currentColor;
-  border-radius: 50%;
-  background: linear-gradient(90deg, currentColor 50%, transparent 50%);
-  transition: rotate 0.6s var(--ease-out);
-}
-
-:root[data-theme="dark"] .theme-switch__icon {
-  rotate: 180deg;
 }
 
 .site-header__menu {

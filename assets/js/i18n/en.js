@@ -1,7 +1,8 @@
 /*
  * Traductions anglaises des textes de index.html (le français est la langue source).
  * Une clé manquante laisse le texte français et affiche un avertissement en console ;
- * `npm run check:i18n` vérifie que toutes les clés de la page existent ici.
+ * les tests (tests/unit/i18n-keys.test.js) vérifient que les clés de la page et celles-ci
+ * correspondent exactement.
  * Les clés *.statement et *.title utilisées avec data-i18n-html contiennent du HTML :
  * les mots annotés gardent leur <span class="sketch" data-sketch="…">.
  */
@@ -16,11 +17,6 @@ export default {
   'nav.contact': 'Contact',
   'nav.menu': 'Menu',
   'nav.close': 'Close',
-
-  'theme.toDark': 'Switch to dark theme',
-  'theme.toLight': 'Switch to light theme',
-  'theme.dark': 'Dark theme',
-  'theme.light': 'Light theme',
 
   'hero.statement':
     'I’m interested in building LLM agents and <span class="sketch" data-sketch="circle" data-sketch-delay="300">RAG</span> systems in <span class="sketch" data-sketch="underline" data-sketch-delay="1100">Montréal</span>.',

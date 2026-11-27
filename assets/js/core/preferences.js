@@ -1,5 +1,5 @@
 /**
- * Préférences mémorisées entre deux visites (thème, langue).
+ * Préférences mémorisées entre deux visites (la langue).
  * Mêmes clés que boot.js. Le stockage peut être bloqué : on ignore alors l'erreur,
  * et le choix ne vaut que pour la visite en cours.
  */

@@ -15,7 +15,7 @@ export class CoverRenderer {
     this.visible = false;
     this.frameId = 0;
     this.lastTimestamp = null;
-    this.size = { width: 0, height: 0 };
+    this.size = null; // connue au premier redimensionnement
     this.tick = this.tick.bind(this);
 
     this.resizeObserver = new ResizeObserver(() => {
@@ -42,7 +42,7 @@ export class CoverRenderer {
   }
 
   requestFrame() {
-    if (this.frameId || !this.visible || !this.size.width) return;
+    if (this.frameId || !this.visible || !this.size) return;
     this.frameId = requestAnimationFrame(this.tick);
   }
 

@@ -1,8 +1,15 @@
 # Archives des polices d’origine (gardées en local, hors du site)
 *.zip
 
-# Dépendances (seulement pour régénérer React)
+# Dépendances de développement (npm install)
 node_modules/
+
+# Rapports des tests, régénérés à chaque lancement
+coverage/
+reports/
+test-results/
+playwright-report/
+.stryker-tmp/
 
 # Fichiers système
 .DS_Store

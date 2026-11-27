@@ -4,17 +4,27 @@
    ========================================================================== */
 
 :root {
+  /* Le site n'existe qu'en clair : le navigateur ne l'assombrit pas */
+  color-scheme: only light;
+
   /* Palette */
   --paper: #f1f1ec;
   --paper-bright: #fafaf7;
   --ink: #1c1d22;
   --pen: #2b47c9;
-  --pen-on-dark: #8ea2ff;
   --marker: #f2e05a;
-  --graphite: #1d1e23;
-  --graphite-raised: #26272d;
-  --chalk: #eaeae4;
   --white: #ffffff;
+
+  /* Couleurs par rôle */
+  --c-bg: var(--paper);
+  --c-surface: var(--paper-bright);
+  --c-text: var(--ink);
+  --c-muted: rgb(28 29 34 / 0.62);
+  --c-pencil: rgb(28 29 34 / 0.42);
+  --c-pen: var(--pen);
+  --c-on-pen: var(--white);
+  --c-solid: var(--ink);
+  --c-on-solid: var(--paper);
 
   /* Typographie */
   --font-display: "Nexa", "Caviar Dreams", ui-sans-serif, system-ui, sans-serif;
@@ -47,44 +57,4 @@
   --ease-in-out: cubic-bezier(0.7, 0, 0.3, 1);
   --ease-draw: cubic-bezier(0.55, 0.1, 0.25, 1);
   --ease-elastic: cubic-bezier(0.3, 1.6, 0.4, 1);
-}
-
-/* Thème clair : encre sur papier */
-:root {
-  color-scheme: light;
-
-  --c-bg: var(--paper);
-  --c-surface: var(--paper-bright);
-  --c-text: var(--ink);
-  --c-muted: rgb(28 29 34 / 0.62);
-  --c-pencil: rgb(28 29 34 / 0.42);
-  --c-pen: var(--pen);
-  --c-on-pen: var(--white);
-  --c-solid: var(--ink);
-  --c-on-solid: var(--paper);
-  --c-shadow: rgb(28 29 34 / 0.28);
-
-  /* Contact : la page se retourne, craie sur graphite */
-  --c-contact: var(--graphite);
-  --c-on-contact: var(--chalk);
-  --c-contact-muted: rgb(234 234 228 / 0.62);
-  --c-contact-line: rgb(234 234 228 / 0.24);
-}
-
-/* Thème sombre : craie sur graphite */
-:root[data-theme="dark"] {
-  color-scheme: dark;
-
-  --c-bg: var(--graphite);
-  --c-surface: var(--graphite-raised);
-  --c-text: var(--chalk);
-  --c-muted: rgb(234 234 228 / 0.62);
-  --c-pencil: rgb(234 234 228 / 0.38);
-  --c-pen: var(--pen-on-dark);
-  --c-on-pen: var(--ink);
-  --c-solid: var(--chalk);
-  --c-on-solid: var(--graphite);
-  --c-shadow: rgb(0 0 0 / 0.5);
-
-  --c-contact: var(--graphite-raised);
 }

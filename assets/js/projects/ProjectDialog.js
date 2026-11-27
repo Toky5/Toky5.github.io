@@ -4,7 +4,7 @@
  * Le projet affiché est conservé pendant l'animation de fermeture.
  */
 import { createElement as h, Fragment, useCallback, useEffect, useRef, useState } from 'react';
-import { localize } from './hooks.js';
+import { localize } from '../lib/localize.js';
 import { ProjectCover } from './ProjectCover.js';
 
 const CLOSE_DURATION = 800; // ms, comme la transition CSS

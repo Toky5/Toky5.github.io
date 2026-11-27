@@ -1,6 +1,6 @@
 /* ==========================================================================
    Projets : grandes lignes séparées par des filets tracés à la main,
-   aperçu qui suit le curseur (souris) ou couverture visible (tactile)
+   cercle plein qui suit le curseur (souris) ou couverture visible (tactile)
    ========================================================================== */
 
 .work {
@@ -93,58 +93,35 @@
   }
 }
 
-/* --- Aperçu flottant et curseur « Voir » -------------------------------------- */
+/* --- Cercle « Voir » qui suit le curseur --------------------------------------- */
 
-.work-preview-layer {
+.work-cursor-layer {
   position: fixed;
   inset: 0;
   z-index: 20;
   pointer-events: none;
 }
 
-/* translate et rotate sont écrits par WorkPreview.js ; transform sert à l'apparition */
-.work-preview,
+/* translate est écrit par WorkCursor.js ; transform sert à l'apparition, centrée sur le pointeur */
 .work-cursor {
   position: absolute;
   top: 0;
   left: 0;
+  display: grid;
+  place-items: center;
+  width: 6.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--c-pen);
+  color: var(--c-on-pen);
+  font-size: var(--text-small);
   transform-origin: 0 0;
   transform: scale(0) translate(-50%, -50%);
   transition: transform 0.45s var(--ease-out);
 }
 
-.work-preview[data-visible],
 .work-cursor[data-visible] {
   transform: scale(1) translate(-50%, -50%);
-}
-
-.work-preview {
-  width: clamp(18rem, 26vw, 25rem);
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border-radius: var(--radius-cover);
-  box-shadow: 0 1.5rem 3rem -1.25rem var(--c-shadow);
-}
-
-.work-preview__slides {
-  height: 100%;
-  transition: translate 0.6s var(--ease-in-out);
-}
-
-.work-preview__slide {
-  height: 100%;
-  background-color: var(--cover-bg);
-}
-
-.work-cursor {
-  display: grid;
-  place-items: center;
-  width: 5.5rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background-color: var(--marker);
-  color: var(--ink);
-  font-size: var(--text-small);
 }
 
 /* Couvertures dessinées sur canevas */

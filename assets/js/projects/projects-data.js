@@ -3,7 +3,7 @@
  * Pour ajouter un projet : ajouter un objet à `projects` (du plus récent au plus ancien)
  * et, si besoin, une couverture dans covers/.
  */
-const NBSP = ' ';
+const NBSP = ' '; // espace insécable : « Loi 25 », « 205 extraits », avant « : »
 
 export const projects = [
   {

@@ -69,19 +69,6 @@
   color: var(--c-on-pen);
 }
 
-/* Sur le fond graphite du contact */
-.button-pill--on-dark {
-  --fill: var(--c-on-contact);
-
-  border-color: var(--c-contact-line);
-  color: var(--c-on-contact);
-}
-
-.button-pill--on-dark:is(:hover, :focus-visible) {
-  border-color: var(--c-on-contact);
-  color: var(--c-contact);
-}
-
 /* Même forme, sans action (ex. « code privé ») */
 .button-pill--static {
   border-style: dashed;

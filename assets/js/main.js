@@ -3,7 +3,6 @@
  * pour qu'une erreur dans l'une n'empêche pas les autres de fonctionner.
  */
 import { initI18n } from './features/i18n.js';
-import { initTheme } from './features/theme.js';
 import { initMenu } from './features/menu.js';
 import { initMagnetic } from './features/magnetic.js';
 import { initDoodles } from './features/doodles.js';
@@ -11,7 +10,6 @@ import { initClock } from './features/clock.js';
 
 const features = {
   i18n: initI18n, // en premier : les annotations se posent sur le texte traduit
-  theme: initTheme,
   menu: initMenu,
   magnetic: initMagnetic,
   doodles: initDoodles,

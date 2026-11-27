@@ -9,28 +9,23 @@ surlignant, l'un après l'autre, des passages d'une page de loi.
 Inspirations, sans reprise de mise en page, de couleurs, d'illustrations ni de textes :
 
 - [Ellipsus](https://ellipsus.com) pour la sobriété, les grands titres fins et l'idée d'annoter le texte à la main ;
-- [Dennis Snellenberg](https://dennissnellenberg.com) pour les interactions : boutons magnétiques, aperçu qui suit le curseur, fiche projet qui monte, heure locale.
+- [Dennis Snellenberg](https://dennissnellenberg.com) pour les interactions : boutons magnétiques, cercle qui suit le curseur, fiche projet qui monte, heure locale.
 
 Toutes les valeurs ci-dessous sont des variables CSS dans `assets/css/tokens.css` ;
 les autres feuilles n'utilisent que ces noms.
 
 ## Couleurs
 
-Thème clair, de l'encre sur du papier :
+De l'encre sur du papier :
 
 - `--paper` `#f1f1ec` : fond de page, un blanc cassé neutre ;
 - `--paper-bright` `#fafaf7` : feuilles posées dessus (fiche projet, menu) ;
 - `--ink` `#1c1d22` : texte, bouton plein, une encre bleu-noir ;
-- `--pen` `#2b47c9` : annotations et survols, le bleu d'un stylo-bille ;
-- `--marker` `#f2e05a` : surligneur (couverture RAG, curseur « Voir », sélection de texte).
+- `--pen` `#2b47c9` : annotations, survols et cercle « Voir », le bleu d'un stylo-bille ;
+- `--marker` `#f2e05a` : surligneur (couverture RAG, sélection de texte).
 
-Thème sombre, de la craie sur du graphite :
-
-- `--graphite` `#1d1e23` : fond ; `--graphite-raised` `#26272d` : feuilles et contact ;
-- `--chalk` `#eaeae4` : texte ;
-- `--pen-on-dark` `#8ea2ff` : le stylo, éclairci pour rester lisible sur fond sombre.
-
-La section contact est toujours sombre : la page se retourne pour finir.
+Le site n'existe qu'en clair, contact compris : même quand le système est en mode sombre,
+il garde le papier et l'encre (`color-scheme: only light`).
 Le texte atteint au moins 4,5:1 de contraste ; le gris des légendes (`--c-muted`) est
 une transparence de l'encre, pas une couleur à part.
 
@@ -46,7 +41,7 @@ une transparence de l'encre, pas une couleur à part.
 
 - Marges latérales `--gutter` (de 20 à 80 px) et sections espacées de `--section` (de 96 à 176 px).
 - Une seule forme de bouton : la pilule (bord 1 px, remplissage qui monte au survol).
-- Couvertures arrondies à 10 px ; une seule ombre, sous l'aperçu flottant.
+- Couvertures arrondies à 10 px ; aucune ombre.
 - Aucune bordure droite : les séparations sont des filets tracés à la main.
 
 ## Annotations
@@ -69,8 +64,8 @@ Peu d'animations, chacune avec un rôle :
 1. Au chargement, le stylo entoure « RAG » puis souligne « Montréal » : c'est le seul moment mis en scène.
 2. Les filets et le souligné du contact se tracent quand ils entrent dans l'écran.
 3. Boutons magnétiques et remplissage au survol.
-4. Aperçu du projet qui suit le curseur et penche dans le sens du mouvement (souris uniquement).
+4. Cercle plein « Voir » qui suit le curseur sur la liste des projets, avec un léger retard (souris uniquement).
 5. Fiche projet et menu qui glissent comme une feuille.
-6. Changement de thème en cercle depuis le bouton, changement de langue en fondu.
+6. Changement de langue en fondu.
 
 Avec « réduire les animations », tout s'affiche directement : tracés complets, pas de glissement.

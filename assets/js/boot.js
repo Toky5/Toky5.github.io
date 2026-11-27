@@ -1,6 +1,6 @@
 /*
  * Exécuté avant le premier affichage (script classique, volontairement minimal) :
- * applique le thème et la langue mémorisés, ou ceux du système.
+ * applique la langue mémorisée, ou celle du navigateur.
  * Tout le reste est chargé en modules depuis main.js.
  */
 (function () {
@@ -10,16 +10,11 @@
     try {
       return window.localStorage.getItem(key);
     } catch (error) {
-      return null; // stockage bloqué : on suit les réglages du système
+      return null; // stockage bloqué : on suit la langue du navigateur
     }
   }
 
-  var storedTheme = read('portfolio:theme');
   var storedLang = read('portfolio:lang');
-  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  root.setAttribute('data-theme', storedTheme === 'dark' || storedTheme === 'light' ? storedTheme : prefersDark ? 'dark' : 'light');
-
   var browserLang = (navigator.languages && navigator.languages[0]) || navigator.language || 'fr';
   var lang = storedLang === 'fr' || storedLang === 'en' ? storedLang : /^fr\b/i.test(browserLang) ? 'fr' : 'en';
   root.setAttribute('data-lang', lang);

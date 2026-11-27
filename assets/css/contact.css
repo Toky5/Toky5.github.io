@@ -1,18 +1,10 @@
 /* ==========================================================================
-   Contact : la page se retourne (graphite), une invitation et les liens
+   Contact : une invitation et les liens, en bas de la même feuille
    ========================================================================== */
 
+/* Le haut de la section vient de l'espace laissé sous les projets */
 .contact {
-  --c-pen: var(--pen-on-dark);
-  --c-pencil: var(--c-contact-line);
-
-  padding: var(--section) var(--gutter) 2rem;
-  background-color: var(--c-contact);
-  color: var(--c-on-contact);
-}
-
-.contact ::selection {
-  color: var(--ink);
+  padding: 0 var(--gutter) 2rem;
 }
 
 .contact__inner {
@@ -29,7 +21,7 @@
 }
 
 .contact__text {
-  color: var(--c-contact-muted);
+  color: var(--c-muted);
   font-size: var(--text-lead);
   text-wrap: pretty;
 }
@@ -41,13 +33,19 @@
   margin-top: clamp(1.5rem, 4vw, 3rem);
 }
 
+/* Sur un écran étroit, une adresse longue passe à la ligne avant « @ » (<wbr>) au lieu de déborder */
+.contact__links .button-pill {
+  max-width: 100%;
+  white-space: normal;
+}
+
 .contact__bottom {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.5rem 2rem;
   padding-top: 1.25rem;
-  color: var(--c-contact-muted);
+  color: var(--c-muted);
   font-size: var(--text-small);
 }
 

@@ -1,33 +1,36 @@
 /*
  * Îlot React des projets : liste en grandes lignes séparées par des filets
- * tracés à la main, aperçu qui suit le curseur et fiche projet en plein écran.
- * Écrit sans JSX (createElement, abrégé `h`), pour fonctionner sans compilation.
+ * tracés à la main, cercle plein qui suit le curseur au survol et fiche projet
+ * en plein écran. Écrit sans JSX (createElement, abrégé `h`), pour fonctionner sans compilation.
  */
 import { createElement as h, Fragment, useState, useSyncExternalStore } from 'react';
 import { langStore } from '../features/i18n.js';
-import { localize, useMediaQuery } from './hooks.js';
+import { localize } from '../lib/localize.js';
+import { useMediaQuery } from './hooks.js';
 import { ProjectCover } from './ProjectCover.js';
 import { ProjectDialog } from './ProjectDialog.js';
-import { WorkPreview } from './WorkPreview.js';
+import { WorkCursor } from './WorkCursor.js';
 
 /** Filet dessiné par features/doodles.js. */
-const rule = (className) => h('span', { className: `sketch-rule ${className}`, 'data-sketch': 'rule', 'aria-hidden': true });
+const rule = (className) =>
+  h('span', { className: `sketch-rule ${className}`, 'data-sketch': 'rule', 'aria-hidden': true });
 
 export function ProjectsApp({ projects, ui }) {
   const lang = useSyncExternalStore(langStore.subscribe, langStore.get);
   const text = ui[lang];
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isHovering, setIsHovering] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
   const canHover = useMediaQuery('(hover: hover) and (pointer: fine) and (min-width: 50.01rem)');
 
   const showNext = () => setOpenIndex((index) => (index + 1) % projects.length);
+  const showCursor = () => setIsHovering(true);
 
   return h(
     Fragment,
     null,
     h(
       'ul',
-      { className: 'work-list', onMouseLeave: () => setHoveredIndex(null) },
+      { className: 'work-list', onMouseLeave: () => setIsHovering(false) },
       projects.map((project, index) =>
         h(
           'li',
@@ -39,9 +42,11 @@ export function ProjectsApp({ projects, ui }) {
               type: 'button',
               className: 'work-row__button',
               'aria-haspopup': 'dialog',
-              onMouseEnter: () => setHoveredIndex(index),
+              // mousemove en plus de mouseenter : le cercle revient aussi après la fermeture de la fiche.
+              onMouseEnter: showCursor,
+              onMouseMove: showCursor,
               onClick: () => {
-                setHoveredIndex(null);
+                setIsHovering(false);
                 setOpenIndex(index);
               },
             },
@@ -58,7 +63,7 @@ export function ProjectsApp({ projects, ui }) {
       ),
     ),
     rule('work-list__end'),
-    canHover && h(WorkPreview, { projects, activeIndex: hoveredIndex, label: text.view }),
+    canHover && h(WorkCursor, { visible: isHovering, label: text.view }),
     h(ProjectDialog, {
       project: openIndex === null ? null : projects[openIndex],
       nextProject: openIndex === null || projects.length < 2 ? null : projects[(openIndex + 1) % projects.length],

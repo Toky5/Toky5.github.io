@@ -128,9 +128,7 @@ ul {
   transform: none;
 }
 
-/* Contenu qui dépend du thème ou de la langue */
-:root[data-theme="dark"] [data-when-theme="light"],
-:root:not([data-theme="dark"]) [data-when-theme="dark"],
+/* Contenu qui dépend de la langue */
 :root[lang="en"] [data-when-lang="fr"],
 :root:not([lang="en"]) [data-when-lang="en"] {
   display: none;

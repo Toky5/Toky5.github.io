@@ -7,7 +7,13 @@ const BOULEVARD = 'rgba(234, 234, 228, 0.42)';
 const SITE = '242, 224, 90';
 const REQUEST = '#8ea2ff';
 const GRID_ANGLE = -0.62; // ≈ 35°, le « nord » de Montréal
-const SITES = [[-2, -1], [1, -2], [2, 1], [-1, 2], [0, 0]]; // en pâtés de maisons
+const SITES = [
+  [-2, -1],
+  [1, -2],
+  [2, 1],
+  [-1, 2],
+  [0, 0],
+]; // en pâtés de maisons
 
 export function createMavilleCover() {
   return function draw(context, width, height, time) {

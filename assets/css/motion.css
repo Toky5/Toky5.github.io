@@ -1,13 +1,6 @@
 /* ==========================================================================
-   Transitions de page et respect de « réduire les animations »
+   Transition de langue et respect de « réduire les animations »
    ========================================================================== */
-
-/* Changement de thème : le nouveau thème s'étend en cercle (features/theme.js) */
-:root.is-theme-switching::view-transition-old(root),
-:root.is-theme-switching::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
 
 /* Changement de langue : fondu court */
 ::view-transition-old(root),

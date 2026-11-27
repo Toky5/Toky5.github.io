@@ -11,6 +11,7 @@
 import { createStore } from '../core/store.js';
 import { writePreference } from '../core/preferences.js';
 import { prefersReducedMotion } from '../core/motion.js';
+import { createTranslator, parseAttributeBindings } from '../lib/translate.js';
 import en from '../i18n/en.js';
 
 const SOURCE_LANG = 'fr';
@@ -20,7 +21,11 @@ const root = document.documentElement;
 const originalTexts = new WeakMap();
 const originalHtml = new WeakMap();
 const originalAttributes = new WeakMap();
-const reportedMissingKeys = new Set();
+const translate = createTranslator((key) => console.warn(`[i18n] Traduction manquante : « ${key} »`));
+
+/** Éléments qui portent cet attribut (des HTMLElement, pour pouvoir lire `dataset`). */
+const elementsWith = (attribute) =>
+  /** @type {NodeListOf<HTMLElement>} */ (document.querySelectorAll(`[${attribute}]`));
 
 /** Langue courante : « fr » ou « en ». */
 export const langStore = createStore(root.dataset.lang === 'en' ? 'en' : SOURCE_LANG);
@@ -49,38 +54,27 @@ function applyLanguage(lang) {
   root.lang = lang;
   root.dataset.lang = lang;
 
-  for (const element of document.querySelectorAll('[data-i18n]')) {
+  for (const element of elementsWith('data-i18n')) {
     if (!originalTexts.has(element)) originalTexts.set(element, element.textContent);
     element.textContent = translate(dictionary, element.dataset.i18n) ?? originalTexts.get(element);
   }
 
-  for (const element of document.querySelectorAll('[data-i18n-html]')) {
+  for (const element of elementsWith('data-i18n-html')) {
     if (!originalHtml.has(element)) originalHtml.set(element, element.innerHTML);
     const html = translate(dictionary, element.dataset.i18nHtml) ?? originalHtml.get(element);
     // Seulement si le contenu change : les annotations déjà tracées restent en place.
     if (element.innerHTML !== html) element.innerHTML = html;
   }
 
-  for (const element of document.querySelectorAll('[data-i18n-attr]')) {
+  for (const element of elementsWith('data-i18n-attr')) {
     if (!originalAttributes.has(element)) originalAttributes.set(element, new Map());
     const originals = originalAttributes.get(element);
 
-    for (const binding of element.dataset.i18nAttr.split(';')) {
-      const [attribute, key] = binding.split(':').map((part) => part.trim());
+    for (const [attribute, key] of parseAttributeBindings(element.dataset.i18nAttr)) {
       if (!originals.has(attribute)) originals.set(attribute, element.getAttribute(attribute));
-      element.setAttribute(attribute, translate(dictionary, key) ?? originals.get(attribute));
+      const value = translate(dictionary, key) ?? originals.get(attribute);
+      if (value === null) element.removeAttribute(attribute);
+      else element.setAttribute(attribute, value);
     }
   }
-}
-
-/** Renvoie la traduction, ou undefined pour garder le texte français d'origine. */
-function translate(dictionary, key) {
-  if (!dictionary) return undefined;
-  if (key in dictionary) return dictionary[key];
-
-  if (!reportedMissingKeys.has(key)) {
-    reportedMissingKeys.add(key);
-    console.warn(`[i18n] Traduction manquante : « ${key} »`);
-  }
-  return undefined;
 }

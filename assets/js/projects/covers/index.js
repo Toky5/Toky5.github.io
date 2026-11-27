@@ -8,8 +8,13 @@ const factories = {
   maville: createMavilleCover,
 };
 
+/** Vrai si une couverture dessinée existe pour ce type (voir projects-data.js). */
+export function hasCover(kind) {
+  return Object.hasOwn(factories, kind);
+}
+
+/** Lance la couverture dans le canevas ; null si le type est inconnu ou le canevas inutilisable. */
 export function createCover(kind, canvas) {
-  const factory = factories[kind];
-  if (!factory || !canvas?.getContext) return null;
-  return new CoverRenderer(canvas, factory());
+  if (!hasCover(kind) || !canvas?.getContext) return null;
+  return new CoverRenderer(canvas, factories[kind]());
 }

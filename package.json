@@ -1,17 +1,37 @@
 {
   "name": "portfolio-toky-erick-rabenantoandro",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": true,
   "description": "Portfolio de Toky Erick Rabenantoandro : site statique HTML, CSS et JavaScript, avec un îlot React. Aucune compilation nécessaire.",
   "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
   "scripts": {
-    "start": "npx --yes serve@14 -l 8080 .",
-    "check:i18n": "node scripts/check-i18n.mjs",
+    "start": "node scripts/serve.mjs",
+    "test": "node --test \"tests/unit/**/*.test.js\"",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-include=\"assets/js/**\" --test-coverage-include=\"scripts/**\" --test-coverage-lines=95 --test-coverage-branches=90 --test-coverage-functions=95 \"tests/unit/**/*.test.js\"",
+    "test:update-snapshots": "node --test --test-update-snapshots \"tests/unit/**/*.test.js\"",
+    "test:e2e": "playwright test",
+    "test:mutation": "stryker run stryker.config.mjs",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc -p tsconfig.json",
+    "check": "npm run lint && npm run format:check && npm run typecheck && npm run test:coverage",
     "vendor:react": "node scripts/vendor-react.mjs"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.1",
+    "@stryker-mutator/core": "^10.1.1",
+    "@types/node": "^22.0.0",
     "esbuild": "0.28.2",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0",
+    "prettier": "3.8.1",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "typescript": "^7.0.2"
   }
 }
