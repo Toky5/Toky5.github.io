@@ -1,6 +1,5 @@
 # Portfolio de Toky Erick Rabenantoandro
 
-[![Qualité](https://github.com/Toky5/Toky5.github.io/actions/workflows/qualite.yml/badge.svg)](https://github.com/Toky5/Toky5.github.io/actions/workflows/qualite.yml)
 
 Lien vers le site: https://toky5.github.io
 
